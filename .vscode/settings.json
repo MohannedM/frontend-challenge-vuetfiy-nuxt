@@ -1,0 +1,4 @@
+{
+    "eslint.run": "onSave",
+    "vetur.format.defaultFormatter.html": "prettier"
+}
