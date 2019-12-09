@@ -74,11 +74,7 @@ export default {
         this.$router.push('/auth/login');
       }).catch(err=>console.log(err));
     }
-  },
-  // created(){
-  //   this.$store.dispatch('setAuth', true);
-  // },
-  middleware: 'set-auth'
+  }
 }
 </script>
 <style>
