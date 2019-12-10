@@ -5,7 +5,7 @@
         <logo class="mr-4"></logo>
       </nuxt-link>
       <div class="input-container">
-      <i class="fab fa-searchengin search-icon"></i>
+      <i class="fas fa-search search-icon"></i>
         <input type="text" class="search-input" placeholder="Search your apps">
       </div>
       <v-spacer />
@@ -34,9 +34,26 @@
                 :alt="user.name"
               >
             </v-avatar>
-        <v-btn text class="white--text" @click="logout">
-          Logout
-        </v-btn>
+        <v-menu bottom left>
+              <template v-slot:activator="{ on }">
+                <v-btn
+                  dark
+                  icon
+                  v-on="on"
+                >
+                  <v-icon>mdi-dots-vertical</v-icon>
+                </v-btn>
+              </template>
+  
+              <v-list>
+                <v-list-item style="cursor:pointer;">
+                  <v-list-item-title>Account Seetings</v-list-item-title>
+                </v-list-item>
+                <v-list-item style="cursor:pointer;">
+                  <v-list-item-title @click="logout">Logout</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
     </v-app-bar>
 
     <v-content>
