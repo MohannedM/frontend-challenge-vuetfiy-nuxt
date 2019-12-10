@@ -18,18 +18,22 @@
           <i class="fas fa-th"></i>
           {{user.totalApps}}
         </span>
-        <v-btn text class="white--text">
-            {{user.name}}
-        </v-btn>
-        <v-avatar>
-        <img
-          :src="user.avatar"
-          :alt="user.name"
-        >
-      </v-avatar>
-      <v-btn class="white--text" text>
-        {{user.plan}}
-      </v-btn>
+        &nbsp;
+        &nbsp;
+              <div class="mr-2 body-1" align="center">
+              <p class="ma-0 pa-0">{{user.name}}</p>
+              <v-btn class="grey darken-3 white--text" rounded x-small>
+                <i class="fas fa-crown"></i>
+                &nbsp;
+                {{user.plan}}
+              </v-btn>
+              </div>
+            <v-avatar>
+              <img
+                :src="user.avatar"
+                :alt="user.name"
+              >
+            </v-avatar>
         <v-btn text class="white--text" @click="logout">
           Logout
         </v-btn>
