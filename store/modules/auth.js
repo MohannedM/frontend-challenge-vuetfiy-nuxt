@@ -61,30 +61,6 @@ const actions = {
         })
         .catch(err=>console.log(err))
     },
-    setAuth({commit}, req){
-        let token;
-        if(req){
-            token = Cookies.get('token');
-        }else{
-            token = localStorage.getItem('token');
-        }
-        if(token){
-            return axios.get("https://pushbots-fend-challenge.herokuapp.com/api/me",{
-                headers:{
-                    Authorization: 'Bearer ' + token
-                }
-            })
-            .then(res=>{
-                const user = res.data;
-                if(token && user){
-                    commit('setAuthData', {
-                        token: token,
-                        user: user
-                    });
-                }
-            }).catch(err=>console.log(err));
-        }
-    },
     logout({commit}){
         Cookies.remove('token');
         Cookies.remove('user');

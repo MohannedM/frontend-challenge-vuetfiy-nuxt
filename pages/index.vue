@@ -116,6 +116,6 @@ export default{
       }
     }).catch(err=>console.log(err));
   },
-  middleware: ['set-auth','is-auth']
+  middleware: 'is-auth'
 }
 </script>
