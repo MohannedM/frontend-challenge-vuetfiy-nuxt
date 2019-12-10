@@ -1,45 +1,57 @@
 <template>
-  <v-layout column justify-center>
-    <v-card class="elevation-12 mr-4">
-      <v-toolbar flat>
-        <v-toolbar-title class="teal--text">Login form</v-toolbar-title>
-        <v-spacer></v-spacer>
-      </v-toolbar>
-      <v-card-text>
-        <v-form>
-            <v-text-field
-              v-model="email"
-              label="Email"
-              :error-messages="emailErrors"
-              type="email"
-              @input="$v.email.$touch()"
-              @blur="$v.email.$touch()"
-              :error="$v.email.$anyError"
-              required
-            ></v-text-field>
-            <v-text-field
-              v-model="password"
-              label="Password"
-              :error-messages="passwordErrors"
-              @input="$v.email.$touch()"
-              @blur="$v.password.$touch()"
-              type="password"
-              :error="$v.password.$anyError"
-              required
-            ></v-text-field>
-        </v-form>
-      </v-card-text>
-      <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn :disabled="$v.$invalid" @click="login" color="teal white--text">Login</v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-layout>
+<div>
+    <v-container>
+
+
+        <v-row no-gutters style="height:90vh;" justify="center">
+            <v-col align-self="center" cols="9">
+                    <h3 class="headline mb-4">Login into your account</h3>
+                    <v-spacer></v-spacer>
+                    <v-form>
+                        <v-text-field
+                        v-model="email"
+                        label="Your e-mail address"
+                        prepend-inner-icon="mdi-email"
+                        :error-messages="emailErrors"
+                        type="email"
+                        @input="$v.email.$touch()"
+                        @blur="$v.email.$touch()"
+                        :error="$v.email.$anyError"
+                        required
+                        ></v-text-field>
+                        <v-text-field
+                        v-model="password"
+                        label="Password"
+                        prepend-inner-icon="mdi-lock"
+                        :error-messages="passwordErrors"
+                        @input="$v.email.$touch()"
+                        @blur="$v.password.$touch()"
+                        type="password"
+                        :error="$v.password.$anyError"
+                        required
+                        ></v-text-field>
+                    </v-form>
+                    <v-spacer></v-spacer>
+                    <v-btn :disabled="$v.$invalid" @click="login" color="teal white--text" block>Login</v-btn>
+                    <v-row no-gutters class="mt-4">
+                        <v-col><v-btn class="red darken-4 white--text" block>Google</v-btn></v-col>
+                        <v-col><v-btn class="black white--text" block>Github</v-btn></v-col>
+                    </v-row>
+
+            </v-col>
+        </v-row>
+
+    </v-container>
+
+
+    
+</div>
 </template>
 
 <script>
 import { required, email, minLength} from 'vuelidate/lib/validators'
 export default {
+  layout:'auth',
   data() {
     return { email: "", password: "" };
   },

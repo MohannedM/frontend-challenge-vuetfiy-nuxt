@@ -1,5 +1,5 @@
 export default function (context){
     if(!context.store.getters.isAuth){
-        context.redirect('/auth/login');
+        context.redirect('/login');
     }
 }

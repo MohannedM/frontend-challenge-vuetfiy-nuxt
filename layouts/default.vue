@@ -5,19 +5,7 @@
         <v-toolbar-title v-text="title" />
       </nuxt-link>
       <v-spacer />
-      <template v-if="!isLoggedIn">
-        <nuxt-link to="/auth/login" tag="span">
-          <v-btn text class="white--text">
-            Login
-          </v-btn>
-        </nuxt-link>
-        <nuxt-link to="/auth/signup" tag="span">
-          <v-btn text class="white--text">
-            Signup
-          </v-btn>
-        </nuxt-link>
-      </template>
-      <template v-else>
+
         <v-btn text class="white--text">
             {{user.name}}
         </v-btn>
@@ -33,7 +21,6 @@
         <v-btn text class="white--text" @click="logout">
           Logout
         </v-btn>
-      </template>
     </v-app-bar>
 
     <v-content>
@@ -71,7 +58,7 @@ export default {
     logout(){
       this.$store.dispatch('logout')
       .then(()=>{
-        this.$router.push('/auth/login');
+        this.$router.push('/login');
       }).catch(err=>console.log(err));
     }
   }
