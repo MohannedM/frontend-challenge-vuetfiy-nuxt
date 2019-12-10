@@ -2,10 +2,22 @@
   <v-app>
     <v-app-bar fixed flat app class="teal white--text">
       <nuxt-link to="/" tag="span" style="cursor:pointer">
-        <v-toolbar-title v-text="title" />
+        <logo class="mr-4"></logo>
       </nuxt-link>
+      <div class="input-container">
+      <i class="fab fa-searchengin search-icon"></i>
+        <input type="text" class="search-input" placeholder="Search your apps">
+      </div>
       <v-spacer />
-
+        <span class="body-1">
+         <i class="fas fa-users"></i> {{user.totalDevices}}
+        </span>
+        &nbsp;
+        &nbsp;
+        <span class="body-1">
+          <i class="fas fa-th"></i>
+          {{user.totalApps}}
+        </span>
         <v-btn text class="white--text">
             {{user.name}}
         </v-btn>
@@ -39,12 +51,15 @@
 
 <script>
 import * as Cookies from 'js-cookie'
+import Logo from './../components/logo'
 export default {
   data() {
     return {
-      title: 'PushBots Manager',
       fixed: true
     }
+  },
+  components:{
+    Logo
   },
   computed:{
     isLoggedIn(){
@@ -74,6 +89,31 @@ export default {
     .fade-leave-active{
         transition: opacity 1s;
         opacity: 0;
+    }
+
+    .input-container{
+      border: 1px solid #009688;
+      background-color: #26A69A;
+      width: 35rem;
+      height: 75%;
+      border-radius: 10px;
+      margin-left: 1.5rem ;
+    }
+    .search-input{
+      outline: none;
+      width: 90%;
+      height: 100%;
+      color: #fff;
+      font-size: 1.5rem;
+    }
+    .search-input::placeholder{
+      color: #fff;
+      font-weight: 300;
+    }
+    .search-icon{
+      display: inline-block;
+      font-size: 2.2rem;
+      padding: 5px 2px;
     }
 
 </style>
