@@ -34,9 +34,10 @@
                     <v-spacer></v-spacer>
                     <v-btn :disabled="$v.$invalid" @click="login" color="teal white--text" block>Login</v-btn>
                     <v-row no-gutters class="mt-4">
-                        <v-col><v-btn class="red darken-4 white--text" block>Google</v-btn></v-col>
-                        <v-col><v-btn class="black white--text" block>Github</v-btn></v-col>
+                        <v-col><v-btn class="red darken-4 white--text" block><i class="fab fa-google"></i> &nbsp; Google</v-btn></v-col>
+                        <v-col><v-btn class="black white--text" block><i class="fab fa-github"></i>&nbsp; Github</v-btn></v-col>
                     </v-row>
+                    
 
             </v-col>
         </v-row>
