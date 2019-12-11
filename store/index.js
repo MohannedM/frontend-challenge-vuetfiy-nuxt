@@ -1,7 +1,6 @@
 import Vuex from "vuex";
 import axios from 'axios'
 import auth from './modules/auth'
-import apps from './modules/apps'
 const createStore = () => {
   return new Vuex.Store({
     state: {},
@@ -20,8 +19,6 @@ const createStore = () => {
             }
             token = jwtCookie.split("=")[1];
 
-          }else{
-            token = localStorage.getItem("token");
           }
           if(!token){
             return;
@@ -46,8 +43,7 @@ const createStore = () => {
           }
     },
     modules:{
-      auth,
-      apps
+      auth
     }
   });
 };

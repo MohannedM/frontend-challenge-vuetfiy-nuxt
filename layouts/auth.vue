@@ -1,14 +1,14 @@
 <template>
     <v-app>
-        <v-layout row>
-            <v-flex col xs6 class="teal">
+        <v-row>
+            <v-col xs6 class="teal">
                 <logo class="ml-2 mt-2"></logo>
-            </v-flex>
-            <v-flex col xs6>
+            </v-col>
+            <v-col xs6>
                 <nuxt />
-            </v-flex>
+            </v-col>
 
-        </v-layout>
+        </v-row>
     </v-app>
 </template>
 <script>

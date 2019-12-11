@@ -34,7 +34,7 @@
                 :alt="user.name"
               >
             </v-avatar>
-        <v-menu bottom left>
+            <v-menu bottom>
               <template v-slot:activator="{ on }">
                 <v-btn
                   dark

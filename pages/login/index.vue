@@ -63,7 +63,7 @@ export default {
         this.$router.push("/");
       })
       .catch(err=>{
-        console.log(err)
+        alert("Username or password is incorrect!");
       });
     }
   },

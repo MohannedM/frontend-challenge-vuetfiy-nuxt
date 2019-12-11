@@ -57,15 +57,14 @@ const actions = {
                 user: user
             });
             Cookies.set('token', token);
-            localStorage.setItem('token', token);
         })
-        .catch(err=>console.log(err))
+        .catch(err=>{
+            return Promise.reject(err);
+        })
     },
     logout({commit}){
         Cookies.remove('token');
         Cookies.remove('user');
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
         return commit("unsetAuthData");
     }
 }
