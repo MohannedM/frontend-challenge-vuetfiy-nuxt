@@ -4,7 +4,7 @@
       <nuxt-link to="/" tag="span" style="cursor:pointer">
         <logo class="mr-4"></logo>
       </nuxt-link>
-      <div class="input-container">
+      <div class="input-container d-none d-md-block">
       <i class="fas fa-search search-icon"></i>
         <input type="text" class="search-input" placeholder="Search your apps">
       </div>
@@ -47,7 +47,7 @@
   
               <v-list>
                 <v-list-item style="cursor:pointer;">
-                  <v-list-item-title>Account Seetings</v-list-item-title>
+                  <v-list-item-title>Account Settings</v-list-item-title>
                 </v-list-item>
                 <v-list-item style="cursor:pointer;">
                   <v-list-item-title @click="logout">Logout</v-list-item-title>

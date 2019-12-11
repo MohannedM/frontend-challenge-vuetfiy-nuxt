@@ -32,7 +32,8 @@ export default {
    */
   plugins: [
     {src: '~/plugins/vuelidate'},
-    { src: '~/plugins/fontawesome'}
+    { src: '~/plugins/fontawesome'},
+    {src: '~/plugins/googlecharts'}
   ],
   /*
    ** Nuxt.js dev-modules

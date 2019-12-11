@@ -12,17 +12,7 @@
           <v-list-item-title class="headline">{{app.title}}</v-list-item-title>
           <div>
             <p class="subtitle-2 grey--text ma-0 pa-0 float-left"><i class="fas fa-mobile-alt"></i> {{app.totalUsers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}}&nbsp;users</p>
-            <div buttom class="float-right">
-              <v-btn icon>
-                <i class="fas fa-share"></i>
-              </v-btn>
-              <v-btn icon small>
-                <v-icon>mdi-dots-vertical</v-icon>
-              </v-btn>
-            </div>
-
-          </div>
-          <div>
+              &nbsp;
             <span v-for="(isPlat, platName, i) in app.platforms" :key="i" class="grey--text">
               <i class="fab fa-apple" v-if="(isPlat && platName === 'ios')"></i>
               <i class="fab fa-android"  v-if="(isPlat && platName === 'android')"></i>
@@ -31,15 +21,22 @@
               <i class="fab fa-opera" v-if="(isPlat && platName === 'opera')"></i>
               <i class="fab fa-safari" v-if="(isPlat && platName === 'safari')"></i>
             </span>
-            
+            <div buttom class="float-right">
+              <v-btn icon>
+                <i class="fas fa-share"></i>
+              </v-btn>
+              <v-btn icon small>
+                <v-icon>mdi-dots-vertical</v-icon>
+              </v-btn>
+            </div>
           </div>
         </v-list-item-content>
       </v-list-item>
-  
       <v-sheet
         class="v-sheet--offset mx-auto"
-        color="teal"
-        max-width="calc(100% - 32px)"
+        color="teal lighten-2"
+        max-width="100%"
+        tile
       >
         <v-sparkline
           :value="app.chartData"
@@ -48,33 +45,34 @@
           padding="16"
         ></v-sparkline>
       </v-sheet>
-        Daily active users
+      <v-layout justify-center class="mt-4">
+        <span class="teal--text">
+          <i class="fas fa-square "></i>
+        </span>
+        &nbsp;
+        <p class="body-2">Daily active users</p>
+      </v-layout>
   
       <v-card-text>
-        Visit ten places on our planet that are undergoing the biggest changes today.
+        <v-btn icon large>
+          <i class="fas fa-paper-plane"></i>
+        </v-btn>
+        <v-btn icon large>
+          <i class="fas fa-history"></i>
+        </v-btn>
+        <v-btn icon large>
+          <i class="fas fa-mobile-alt"></i>
+        </v-btn>
+        <v-btn icon large>
+          <i class="fas fa-users"></i>
+        </v-btn>
+        <v-btn icon large>
+          <i class="fas fa-cog"></i>
+        </v-btn>
+        <v-btn icon large>
+          <i class="fas fa-chart-area"></i>
+        </v-btn>
       </v-card-text>
-  
-      <v-card-actions>
-        <v-btn
-          text
-          color="deep-purple accent-4"
-        >
-          Read
-        </v-btn>
-        <v-btn
-          text
-          color="deep-purple accent-4"
-        >
-          Bookmark
-        </v-btn>
-        <v-spacer></v-spacer>
-        <v-btn icon>
-          <v-icon>mdi-heart</v-icon>
-        </v-btn>
-        <v-btn icon>
-          <v-icon>mdi-share-variant</v-icon>
-        </v-btn>
-      </v-card-actions>
     </v-card>
         </v-flex>
       </v-row>
@@ -94,13 +92,15 @@ import axios from 'axios'
 export default{
   data(){
     return{
-
     }
   },
   methods:{
     paginate(page){
       this.$router.push(`/?page=${page}`);
     }
+  },
+  components:{
+
   },
   computed:{
     urlQuery(){
@@ -121,7 +121,6 @@ export default{
       }
     })
     .then(res=>{
-      console.log(res.data)
       return {
         total: res.data.total,
         apps: res.data.data,
